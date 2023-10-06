@@ -1,6 +1,15 @@
-#app {
+#app{
   display: grid;
-  place-content: center;
-  height: 100vh;
-  background-color: #1b231b;
+    margin-left:  00px;
+
+ background-color: rgb(23, 37, 30);
+}
+
+
+
+span{
+ display:  grid ; 
+ margin-left: 250px;
+
+ 
 }

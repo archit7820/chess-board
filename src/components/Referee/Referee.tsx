@@ -6,6 +6,7 @@ import { Pawn } from "../../models/Pawn";
 import { bishopMove, getPossibleBishopMoves, getPossibleKingMoves, getPossibleKnightMoves, getPossiblePawnMoves, getPossibleQueenMoves, getPossibleRookMoves, kingMove, knightMove, pawnMove, queenMove, rookMove } from "../../referee/rules";
 import { PieceType, TeamType } from "../../Types" ;
 import Chessboard from "../Chessboard/Chessboard" ;
+import './Referee.css';
 
 export default function Referee() {
     const [board, setBoard] = useState<Board>(initialBoard.clone());
@@ -48,9 +49,10 @@ export default function Referee() {
             if(clonedBoard.winningTeam !== undefined) {
                 checkmateModalRef.current?.classList.remove("hidden");
             }
-
             return clonedBoard;
-        })
+           
+        }) 
+        
 
       
         let promotionRow = (playedPiece.team === TeamType.OUR) ? 7 : 0;
@@ -160,25 +162,27 @@ export default function Referee() {
 
     return (
         <div>
-            <p style={{ color: "white", fontSize: "24px", textAlign: "center" }}>Total turns: {board.totalTurns}</p>
-            <div className="modal hidden" ref={modalRef}>
-                <div className="modal-body">
-                    <img onClick={() => promotePawn(PieceType.ROOK)} src={`/assets/images/rook_${promotionTeamType()}.png`}   alt = "" />
-                    <img onClick={() => promotePawn(PieceType.BISHOP)} src={`/assets/images/bishop_${promotionTeamType()}.png`}   alt = "" />
-                    <img onClick={() => promotePawn(PieceType.KNIGHT)} src={`/assets/images/knight_${promotionTeamType()}.png`}   alt = "" />
-                    <img onClick={() => promotePawn(PieceType.QUEEN)} src={`/assets/images/queen_${promotionTeamType()}.png`}   alt = "" />
-                </div>
-            </div>
+
+<div className='container'>
+  <img src="https://nayastudiosco.com/wp-content/uploads/2021/05/Naya_studio-rental.png" alt="" style={{ marginRight: '10px' }} />
+  <span>CHESS GAME</span>
+</div>
+
             <div className="modal hidden" ref={checkmateModalRef}>
                 <div className="modal-body">
                     <div className="checkmate-body">
-                        <span>The winning team is {board.winningTeam === TeamType.OUR ? "white" : "black"}!</span>
-                        <button onClick={restartGame}>Play again</button>
+                        
+                        <button onClick={restartGame}>Reset Game</button>
                     </div>
                 </div>
             </div>
             <Chessboard playMove={playMove}
                 pieces={board.pieces} />
+
+
         </div>
+
+
+
     )
 }
