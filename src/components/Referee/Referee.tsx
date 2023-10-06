@@ -162,22 +162,29 @@ export default function Referee() {
 
     return (
         <div>
-
-<div className='container'>
+<div className="container">
   <img src="https://nayastudiosco.com/wp-content/uploads/2021/05/Naya_studio-rental.png" alt="" style={{ marginRight: '10px' }} />
-  <span>CHESS GAME</span>
 </div>
 
-            <div className="modal hidden" ref={checkmateModalRef}>
-                <div className="modal-body">
-                    <div className="checkmate-body">
-                        
-                        <button onClick={restartGame}>Reset Game</button>
-                    </div>
-                </div>
-            </div>
-            <Chessboard playMove={playMove}
-                pieces={board.pieces} />
+  <span>CHESS GAME</span>
+ 
+ 
+
+<div className="modal hidden" ref={checkmateModalRef}>
+  <div className="modal-body">
+    <div className="checkmate-body">
+      <button onClick={restartGame}>Reset Game</button>
+    </div>
+  </div>
+</div>
+
+<div style={{ display: 'flex' }}>
+  <div className="chess-game">
+  <Chessboard playMove={playMove} pieces={board.pieces} />
+  </div>
+ 
+</div>
+
 
 
         </div>
