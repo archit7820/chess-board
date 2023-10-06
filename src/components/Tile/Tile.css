@@ -22,11 +22,11 @@
 }
 
 .black-tile {
-    background-color: #779556;
+    background-color: #4b3232;
 }
 
 .white-tile {
-    background-color: #ebecd0;
+    background-color: #ffffff;
 }
 
 .tile img {
@@ -38,7 +38,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(251, 251, 251, 0.4);
 }
 
 .tile-highlight.chess-piece-tile::before {

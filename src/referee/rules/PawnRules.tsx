@@ -7,7 +7,7 @@ export const pawnMove = (initialPosition: Position, desiredPosition: Position, t
   const specialRow = team === TeamType.OUR ? 1 : 6;
   const pawnDirection = team === TeamType.OUR ? 1 : -1;
 
-  //MOVEMENT LOGIC
+
   if (
     initialPosition.x === desiredPosition.x &&
     initialPosition.y === specialRow &&
@@ -30,12 +30,12 @@ export const pawnMove = (initialPosition: Position, desiredPosition: Position, t
       return true;
     }
   }
-  //ATTACK LOGIC
+ 
   else if (
     desiredPosition.x - initialPosition.x === -1 &&
     desiredPosition.y - initialPosition.y === pawnDirection
   ) {
-    //ATTACK IN UPPER OR BOTTOM LEFT CORNER
+ 
     if (tileIsOccupiedByOpponent(desiredPosition, boardState, team)) {
       return true;
     }
@@ -43,7 +43,7 @@ export const pawnMove = (initialPosition: Position, desiredPosition: Position, t
     desiredPosition.x - initialPosition.x === 1 &&
     desiredPosition.y - initialPosition.y === pawnDirection
   ) {
-    //ATTACK IN THE UPPER OR BOTTOM RIGHT CORNER
+   
     if (tileIsOccupiedByOpponent(desiredPosition, boardState, team)) {
       return true;
     }

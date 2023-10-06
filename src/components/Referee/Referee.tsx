@@ -14,10 +14,10 @@ export default function Referee() {
     const checkmateModalRef = useRef<HTMLDivElement>(null);
 
     function playMove(playedPiece: Piece, destination: Position): boolean {
-        // If the playing piece doesn't have any moves return
+
         if (playedPiece.possibleMoves === undefined) return false;
 
-        // Prevent the inactive team from playing
+     
         if (playedPiece.team === TeamType.OUR
             && board.totalTurns % 2 !== 1) return false;
         if (playedPiece.team === TeamType.OPPONENT
@@ -36,12 +36,11 @@ export default function Referee() {
             playedPiece.team
         );
 
-        // playMove modifies the board thus we
-        // need to call setBoard
+  
         setBoard(() => {
             const clonedBoard = board.clone();
             clonedBoard.totalTurns += 1;
-            // Playing the move
+      
             playedMoveIsValid = clonedBoard.playMove(enPassantMove,
                 validMove, playedPiece,
                 destination);
@@ -53,7 +52,7 @@ export default function Referee() {
             return clonedBoard;
         })
 
-        // This is for promoting a pawn
+      
         let promotionRow = (playedPiece.team === TeamType.OUR) ? 7 : 0;
 
         if (destination.y === promotionRow && playedPiece.isPawn) {
@@ -99,7 +98,7 @@ export default function Referee() {
     }
 
   
-    //Add stalemate!
+ 
     function isValidMove(initialPosition: Position, desiredPosition: Position, type: PieceType, team: TeamType) {
         let validMove = false;
         switch (type) {

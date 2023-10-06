@@ -42,9 +42,8 @@ export const rookMove = (initialPosition: Position, desiredPosition: Position, t
   export const getPossibleRookMoves = (rook: Piece, boardstate: Piece[]): Position[] => {
     const possibleMoves: Position[] = [];
 
-    // Top movement
+
     for(let i = 1; i < 8; i++) {
-      // Stop checking if move is outside of the board
       if(rook.position.y + i > 7) break;
       const destination = new Position(rook.position.x, rook.position.y + i);
 
@@ -58,9 +57,9 @@ export const rookMove = (initialPosition: Position, desiredPosition: Position, t
       }
     }
 
-    // Bottom movement
+  
     for(let i = 1; i < 8; i++) {
-      // Stop checking if move is outside of the board
+
       if(rook.position.y - i < 0) break;
 
       const destination = new Position(rook.position.x, rook.position.y - i);
@@ -75,9 +74,9 @@ export const rookMove = (initialPosition: Position, desiredPosition: Position, t
       }
     }
 
-    // Left movement
+ 
     for(let i = 1; i < 8; i++) {
-      // Stop checking if move is outside of the board
+      
       if(rook.position.x - i < 0) break;
 
       const destination = new Position(rook.position.x - i, rook.position.y);
@@ -92,9 +91,9 @@ export const rookMove = (initialPosition: Position, desiredPosition: Position, t
       }
     }
 
-    // Right movement
+  
     for(let i = 1; i < 8; i++) {
-      // Stop checking if move is outside of the board
+  
       if(rook.position.x + i > 7) break;
 
       const destination = new Position(rook.position.x + i, rook.position.y);
